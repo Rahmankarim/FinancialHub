@@ -155,6 +155,6 @@ export const NET_WORTH_CHANGE = 900 // from previous month
 export const NET_WORTH_CHANGE_PERCENT = 1.68
 
 // Initial data for localStorage
-export const INITIAL_TRANSACTIONS: Transaction[] = MOCK_TRANSACTIONS
-export const INITIAL_BUDGETS: Budget[] = MOCK_BUDGETS
-export const INITIAL_GOALS: SavingsGoal[] = MOCK_GOALS
+export const INITIAL_TRANSACTIONS: Transaction[] = []
+export const INITIAL_BUDGETS: Budget[] = []
+export const INITIAL_GOALS: SavingsGoal[] = []

@@ -1,4 +1,4 @@
-import { DEFAULT_SETTINGS, INITIAL_BUDGETS, INITIAL_GOALS, INITIAL_TRANSACTIONS } from '@/lib/constants'
+import { DEFAULT_SETTINGS } from '@/lib/constants'
 import { Budget, SavingsGoal, Settings, Transaction } from '@/lib/types'
 
 export interface FinanceSnapshot {
@@ -13,9 +13,9 @@ const clone = <T,>(value: T): T => JSON.parse(JSON.stringify(value))
 
 export function createDefaultFinanceSnapshot(): FinanceSnapshot {
   return {
-    transactions: clone(INITIAL_TRANSACTIONS),
-    budgets: clone(INITIAL_BUDGETS),
-    goals: clone(INITIAL_GOALS),
+    transactions: clone([] as Transaction[]),
+    budgets: clone([] as Budget[]),
+    goals: clone([] as SavingsGoal[]),
     settings: clone(DEFAULT_SETTINGS),
     version: 1,
   }
