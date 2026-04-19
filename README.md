@@ -3,6 +3,7 @@
 Financial Hub is a personal finance cockpit built for people who want clarity, not chaos.
 
 Imagine your money as a city:
+
 - transactions are the traffic
 - budgets are the lane limits
 - goals are the destinations
@@ -13,6 +14,7 @@ This app gives you the control tower.
 ## What This Project Is About
 
 Financial Hub helps users:
+
 - track day-to-day transactions
 - plan category budgets
 - build savings goals
@@ -42,7 +44,9 @@ It is designed as a modern dashboard with clear visuals, quick actions, and stru
 ## Feature Tour (Creative Walkthrough)
 
 ### 1) Dashboard: Your Mission Briefing
+
 Open the app and the dashboard acts like morning radar:
+
 - net worth hero with trend signal
 - summary metrics for balance, income, expenses, savings rate
 - spending donut and trend charts
@@ -51,8 +55,10 @@ Open the app and the dashboard acts like morning radar:
 It is the "what changed" screen.
 
 ### 2) Transactions: The Event Stream
+
 Every payment, salary, and transfer becomes a timeline event.
 You can:
+
 - add, edit, delete transactions
 - search by text
 - filter by type/category/date range
@@ -61,8 +67,10 @@ You can:
 It is the "why numbers moved" screen.
 
 ### 3) Budgets: Guardrails, Not Handcuffs
+
 Budgets are category envelopes with progress and overspend alerts.
 You can:
+
 - create and edit category limits
 - spot over-budget states instantly
 - transfer funds from available balance into a budget
@@ -70,8 +78,10 @@ You can:
 It is the "stay in lane" screen.
 
 ### 4) Goals: Future You, Funded
+
 Goals track what you are building toward (emergency fund, travel, upgrades).
 You can:
+
 - create and edit goals
 - monitor completion and days remaining
 - transfer funds from available balance directly into a goal
@@ -79,8 +89,10 @@ You can:
 It is the "long game" screen.
 
 ### 5) Reports: The Flight Recorder
+
 Reports summarize your behavior over time.
 You get:
+
 - income vs expense comparison
 - net worth trajectory
 - month-window filtering for focused analysis
@@ -88,7 +100,9 @@ You get:
 It is the "pattern recognition" screen.
 
 ### 6) Settings: Control Room
+
 Settings centralize:
+
 - currency preferences
 - notification toggles
 - CSV export
@@ -99,12 +113,14 @@ It is the "operate and maintain" screen.
 ## Data Model at a Glance
 
 Main entities:
+
 - Transaction
 - Budget
 - SavingsGoal
 - Settings
 
 The calculations layer derives:
+
 - net worth
 - monthly income/expenses/savings rate
 - budget utilization
@@ -135,6 +151,7 @@ http://localhost:3000
 Most finance apps either overwhelm users with raw data or oversimplify reality.
 
 Financial Hub tries to do both well:
+
 - enough detail to make smart decisions
 - enough design clarity to stay calm while doing it
 
