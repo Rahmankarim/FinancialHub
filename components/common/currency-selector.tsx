@@ -7,15 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-
-const currencies = [
-  { code: 'USD', label: 'US Dollar ($)' },
-  { code: 'EUR', label: 'Euro (€)' },
-  { code: 'GBP', label: 'British Pound (£)' },
-  { code: 'JPY', label: 'Japanese Yen (¥)' },
-  { code: 'CAD', label: 'Canadian Dollar (C$)' },
-  { code: 'AUD', label: 'Australian Dollar (A$)' },
-]
+import { CURRENCIES } from '@/lib/currency'
 
 interface CurrencySelectorProps {
   onCurrencyChange: (currency: string) => void
@@ -32,7 +24,7 @@ export function CurrencySelector({
         <SelectValue placeholder="Select currency" />
       </SelectTrigger>
       <SelectContent>
-        {currencies.map((currency) => (
+        {CURRENCIES.map((currency) => (
           <SelectItem key={currency.code} value={currency.code}>
             {currency.label}
           </SelectItem>

@@ -1,6 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react'
+import { setPreferredCurrency } from '@/lib/currency'
 import { Budget, SavingsGoal, Settings, Transaction } from '@/lib/types'
 import { createDefaultFinanceSnapshot, normalizeFinanceSnapshot, type FinanceSnapshot } from '@/lib/finance-data'
 import { useAuth } from '@/lib/context/auth-context'
@@ -59,6 +60,7 @@ export function FinanceProvider({ children }: { children: React.ReactNode }) {
     setBudgets(snapshot.budgets)
     setGoals(snapshot.goals)
     setSettings(snapshot.settings)
+    setPreferredCurrency(snapshot.settings.currency)
   }
 
   const saveSnapshot = async (snapshot: FinanceSnapshot) => {

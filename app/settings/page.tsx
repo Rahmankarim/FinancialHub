@@ -26,6 +26,33 @@ export default function SettingsPage() {
     setEmailAlerts(settings.emailAlerts)
   }, [settings])
 
+  const handleCurrencyChange = async (nextCurrency: string) => {
+    setCurrency(nextCurrency)
+    await updateSettings({
+      currency: nextCurrency,
+      notificationsEnabled,
+      emailAlerts,
+    })
+  }
+
+  const handleNotificationsChange = async (nextValue: boolean) => {
+    setNotificationsEnabled(nextValue)
+    await updateSettings({
+      currency,
+      notificationsEnabled: nextValue,
+      emailAlerts,
+    })
+  }
+
+  const handleEmailAlertsChange = async (nextValue: boolean) => {
+    setEmailAlerts(nextValue)
+    await updateSettings({
+      currency,
+      notificationsEnabled,
+      emailAlerts: nextValue,
+    })
+  }
+
   const handleSave = async () => {
     await updateSettings({
       currency,
@@ -91,7 +118,7 @@ export default function SettingsPage() {
                 <p className="font-medium">Currency</p>
                 <p className="text-sm text-muted-foreground">Choose your preferred currency</p>
               </div>
-              <CurrencySelector onCurrencyChange={setCurrency} currentCurrency={currency} />
+              <CurrencySelector onCurrencyChange={handleCurrencyChange} currentCurrency={currency} />
             </div>
           </CardContent>
         </Card>
@@ -108,14 +135,14 @@ export default function SettingsPage() {
                 <p className="font-medium">Push Notifications</p>
                 <p className="text-sm text-muted-foreground">Receive alerts for budget overages and goals</p>
               </div>
-              <Switch checked={notificationsEnabled} onCheckedChange={setNotificationsEnabled} />
+              <Switch checked={notificationsEnabled} onCheckedChange={handleNotificationsChange} />
             </div>
             <div className="flex items-center justify-between border-t pt-6">
               <div>
                 <p className="font-medium">Email Alerts</p>
                 <p className="text-sm text-muted-foreground">Receive weekly financial summaries</p>
               </div>
-              <Switch checked={emailAlerts} onCheckedChange={setEmailAlerts} />
+              <Switch checked={emailAlerts} onCheckedChange={handleEmailAlertsChange} />
             </div>
           </CardContent>
         </Card>
@@ -167,7 +194,16 @@ export default function SettingsPage() {
 
         {/* Save Button */}
         <div className="flex justify-end gap-3 sticky bottom-6">
-          <Button variant="outline">Cancel</Button>
+          <Button
+            variant="outline"
+            onClick={() => {
+              setCurrency(settings.currency)
+              setNotificationsEnabled(settings.notificationsEnabled)
+              setEmailAlerts(settings.emailAlerts)
+            }}
+          >
+            Cancel
+          </Button>
           <Button onClick={handleSave} disabled={isSaving}>
             <Save className="w-4 h-4 mr-2" />
             {isSaving ? 'Saving...' : 'Save Changes'}

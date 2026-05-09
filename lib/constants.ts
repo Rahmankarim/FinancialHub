@@ -1,4 +1,5 @@
 import { Category, Transaction, Budget, SavingsGoal, MonthlyMetrics, Settings } from './types'
+import { DEFAULT_CURRENCY } from './currency'
 
 // Category definitions with colors
 export const CATEGORIES: Category[] = [
@@ -21,7 +22,7 @@ export const TRANSACTION_CATEGORIES = {
 
 // Default settings
 export const DEFAULT_SETTINGS: Settings = {
-  currency: 'USD',
+  currency: DEFAULT_CURRENCY,
   notificationsEnabled: true,
   emailAlerts: true,
 }

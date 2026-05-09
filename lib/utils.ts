@@ -1,15 +1,18 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import { getPreferredCurrency, normalizeCurrencyCode } from './currency'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
 // Format currency
-export const formatCurrency = (amount: number, currency: string = 'USD'): string => {
+export const formatCurrency = (amount: number, currency?: string): string => {
+  const resolvedCurrency = currency ? normalizeCurrencyCode(currency) : getPreferredCurrency()
+
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
-    currency,
+    currency: resolvedCurrency,
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(amount)
